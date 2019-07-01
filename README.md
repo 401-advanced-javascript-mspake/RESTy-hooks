@@ -1,12 +1,12 @@
 ![CF](http://i.imgur.com/7v5ASc8.png) LAB
 =================================================
 
-## RESTy to React  
+## RESTy with Hooks  
 
 ### Author: Morgana Spake  
 
 ### Links and Resources
-* [submission PR](https://github.com/401-advanced-javascript-mspake/RESTy-react/pull/1)
+* [submission PR](https://github.com/401-advanced-javascript-mspake/RESTy-hooks/pull/1)
   
 <!-- #### Documentation
 * [api docs](http://xyz.com) (API servers)
