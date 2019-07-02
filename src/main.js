@@ -1,41 +1,24 @@
-import React from 'react';
-import superagent from 'superagent';
+import React, { useContext } from 'react';
 import ReactJson from 'react-json-view';
 
 import Form from './form';
-// import JSONSection from './json';
 import Aside from './aside';
+import { Context } from './context/context';
 
-class Main extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      results: null,
-      history: [],
-    };
-  }
+function Main() {
+  const context = useContext(Context);
 
-  processForm = (method, url, body, auth) => {
-    console.log(method, url);
-    this.setState({ history: [...this.state.history, url] });
-    superagent(method, url).then((results) => {
-      this.setState({ results });
-    });
-  }
-
-  render() {
-    return (
+  return (
       <main>
-      <Aside history={this.state.history} />
+      <Aside history={context.history} />
       <section id="right-side">
-        <Form processForm={this.processForm} />
+        <Form processForm={context.processForm} />
         <div id="json">
-          <ReactJson src={this.state.results} />
+          <ReactJson src={context.results} />
         </div>
       </section>
       </main>
-    );
-  }
+  );
 }
 
 export default Main;
