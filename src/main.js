@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+
 import ReactJson from 'react-json-view';
 
 import Form from './form';
@@ -6,7 +7,9 @@ import Aside from './aside';
 import { Context } from './context/context';
 
 function Main() {
+  console.log(useContext);
   const context = useContext(Context);
+  console.log(context);
 
   return (
       <main>
