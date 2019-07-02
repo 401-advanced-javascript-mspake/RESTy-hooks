@@ -43,7 +43,7 @@ export default class ContextProvider extends React.Component {
 
   render() {
     return (
-      <Context.Provider value={this.state}>
+      <Context.Provider value={this}>
         {this.props.children}
       </Context.Provider>
     );

@@ -7,17 +7,16 @@ import Aside from './aside';
 import { Context } from './context/context';
 
 function Main() {
-  console.log(useContext);
   const context = useContext(Context);
   console.log(context);
 
   return (
       <main>
-      <Aside history={context.history} />
+      <Aside history={context.state.history} />
       <section id="right-side">
         <Form processForm={context.processForm} />
         <div id="json">
-          <ReactJson src={context.results} />
+          <ReactJson src={context.state.results} />
         </div>
       </section>
       </main>

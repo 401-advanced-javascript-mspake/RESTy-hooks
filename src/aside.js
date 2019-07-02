@@ -9,7 +9,7 @@ function Aside() {
       <aside>
       <h2>History</h2>
       <ul>
-        {context.history.map((entry, i) => {
+        {context.state.history.map((entry, i) => {
           return (<li key={`history-${i}`}>{entry}</li>);
         })}
       </ul>
