@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-class Aside extends React.Component {
-  render() {
-    return (
+import { Context } from './context/context';
+
+
+function Aside() {
+  const context = useContext(Context);
+  return (
       <aside>
       <h2>History</h2>
       <ul>
-        {this.props.history.map((entry, i) => {
+        {context.history.map((entry, i) => {
           return (<li key={`history-${i}`}>{entry}</li>);
         })}
       </ul>
     </aside>
-    );
-  }
+  );
 }
 
 export default Aside;

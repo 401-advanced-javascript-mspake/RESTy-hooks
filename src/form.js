@@ -1,48 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Get from './methods/get';
 import Post from './methods/post';
 import Put from './methods/put';
 import Patch from './methods/patch';
 import Delete from './methods/delete';
 
-class Form extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+import { Context } from './context/context';
 
-  saveMethod = (event) => {
-    event.preventDefault();
-    const method = event.target.value.toUpperCase();
-    console.log(method);
-    this.setState({ method });
-  }
 
-  saveUrl = (event) => {
-    event.preventDefault();
-    const url = event.target.value;
-    this.setState({ url });
-  }
-
-  passData = (event) => {
-    event.preventDefault();
-    this.props.processForm(this.state.method, this.state.url);
-  }
-
-  render() {
-    return (
+function Form() {
+  const context = useContext(Context);
+  return (
       <>
       <form>
       <section>
-        <input type="text" className="wide" name="url" placeholder="URL" onChange={this.saveUrl}></input>
+        <input type="text" className="wide" name="url" placeholder="URL" onChange={context.saveUrl}></input>
         <div id="methods">
-          <Get saveMethod={this.saveMethod} />
-          <Post saveMethod={this.saveMethod} />
-          <Put saveMethod={this.saveMethod} />
-          <Patch saveMethod={this.saveMethod} />
-          <Delete saveMethod={this.saveMethod} />
+          <Get saveMethod={context.saveMethod} />
+          <Post saveMethod={context.saveMethod} />
+          <Put saveMethod={context.saveMethod} />
+          <Patch saveMethod={context.saveMethod} />
+          <Delete saveMethod={context.saveMethod} />
           <label>
-            <button type="submit" onClick={this.passData}>Go!</button>
+            <button type="submit" onClick={context.passData}>Go!</button>
           </label>
         </div>
       </section>
@@ -68,8 +48,7 @@ class Form extends React.Component {
       </section>
     </form>
       </>
-    );
-  }
+  );
 }
 
 export default Form;

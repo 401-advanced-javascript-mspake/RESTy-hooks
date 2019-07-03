@@ -1,26 +1,22 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { Context } from '../context/context';
 
-class Delete extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      checked: false,
-    };
-  }
 
-  handleSelect = (event) => {
-    this.setState({ checked: true });
-    this.props.saveMethod(event);
-  }
+function Delete() {
+  const [checked, setChecked] = useState(false);
+  const context = useContext(Context);
 
-  render() {
-    return (
+  const handleSelect = (event) => {
+    setChecked(true);
+    context.saveMethod(event);
+  };
+
+  return (
       <label>
-      <input type="radio" onChange={this.handleSelect} checked={this.state.checked} name="method" value="Delete"></input>
+      <input type="radio" onChange={handleSelect} checked={checked} name="method" value="Delete"></input>
       <span>DELETE</span>
     </label>
-    );
-  }
+  );
 }
 
 export default Delete;
