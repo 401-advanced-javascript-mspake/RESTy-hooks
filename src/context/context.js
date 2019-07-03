@@ -11,6 +11,10 @@ export default class ContextProvider extends React.Component {
       history: [],
       method: null,
       url: null,
+      processForm: this.processForm,
+      saveMethod: this.saveMethod,
+      saveUrl: this.saveUrl,
+      passData: this.passData,
     };
   }
 
@@ -43,7 +47,7 @@ export default class ContextProvider extends React.Component {
 
   render() {
     return (
-      <Context.Provider value={this}>
+      <Context.Provider value={this.state}>
         {this.props.children}
       </Context.Provider>
     );

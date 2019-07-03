@@ -12,11 +12,11 @@ function Main() {
 
   return (
       <main>
-      <Aside history={context.state.history} />
+      <Aside history={context.history} />
       <section id="right-side">
         <Form processForm={context.processForm} />
         <div id="json">
-          <ReactJson src={context.state.results} />
+          <ReactJson src={context.results} />
         </div>
       </section>
       </main>
